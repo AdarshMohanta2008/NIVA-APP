@@ -1,0 +1,431 @@
+@import "tailwindcss";
+
+@theme {
+  --font-brand: 'Cinzel', 'Noto Serif Devanagari', serif;
+  --font-display: 'Cormorant Garamond', 'Noto Serif Devanagari', Georgia, serif;
+  --font-ui: 'Plus Jakarta Sans', 'Sora', 'Noto Sans Devanagari', 'Noto Sans Bengali', 'Noto Naskh Arabic', 'Noto Sans Gurmukhi', 'Noto Sans Tamil', system-ui, sans-serif;
+  --font-script: 'Cormorant Garamond', 'Noto Serif Devanagari', 'Noto Naskh Arabic', serif;
+}
+
+@layer base {
+  :root {
+    /* Default Universal Atmosphere Variables */
+    --bg-0: #07030F;
+    --bg-1: #180838;
+    --bg-2: #2A1054;
+    --accent: #A855F7;
+    --accent-2: #F59E0B;
+    --glow: rgba(168, 85, 247, 0.45);
+
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-bg-subtle: rgba(255, 255, 255, 0.04);
+    --glass-bg-elevated: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.16);
+    --glass-border-specular: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 60%, rgba(255, 255, 255, 0.15) 100%);
+    --glass-inner-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.22);
+    --glass-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.65), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+    --dock-h: 72px;
+
+    /* Sacred fluid typography scale */
+    --font-brand: 'Cinzel', 'Noto Serif Devanagari', serif;
+    --font-display: 'Cormorant Garamond', 'Noto Serif Devanagari', Georgia, serif;
+    --font-ui: 'Plus Jakarta Sans', 'Sora', 'Noto Sans Devanagari', 'Noto Sans Bengali', 'Noto Naskh Arabic', 'Noto Sans Gurmukhi', 'Noto Sans Tamil', system-ui, sans-serif;
+    --font-script: 'Cormorant Garamond', 'Noto Serif Devanagari', 'Noto Naskh Arabic', serif;
+    --text-hero: clamp(2rem, 5vw, 3.25rem);
+    --text-heading: clamp(1.5rem, 3.5vw, 2.25rem);
+    --text-subheading: clamp(1.125rem, 2.5vw, 1.5rem);
+  }
+
+  /* Per-Faith Atmosphere Overrides on Root */
+  [data-faith="hinduism"] {
+    --bg-0: #07030F;
+    --bg-1: #120826;
+    --bg-2: #2A1054;
+    --accent: #F59E0B;
+    --accent-2: #A855F7;
+    --glow: rgba(245, 158, 11, 0.42);
+  }
+
+  [data-faith="islam"] {
+    --bg-0: #03120F;
+    --bg-1: #062A22;
+    --bg-2: #0B4337;
+    --accent: #10B981;
+    --accent-2: #F59E0B;
+    --glow: rgba(16, 185, 129, 0.42);
+  }
+
+  [data-faith="christianity"] {
+    --bg-0: #0B1030;
+    --bg-1: #1E2A63;
+    --bg-2: #2D3D8B;
+    --accent: #818CF8;
+    --accent-2: #F59E0B;
+    --glow: rgba(129, 140, 248, 0.42);
+  }
+
+  [data-faith="sikhism"] {
+    --bg-0: #071B3A;
+    --bg-1: #0F3B8C;
+    --bg-2: #1E50B3;
+    --accent: #3B82F6;
+    --accent-2: #F59E0B;
+    --glow: rgba(59, 130, 246, 0.42);
+  }
+
+  [data-faith="buddhism"] {
+    --bg-0: #0E1410;
+    --bg-1: #24301F;
+    --bg-2: #35452D;
+    --accent: #F472B6;
+    --accent-2: #F59E0B;
+    --glow: rgba(244, 114, 182, 0.42);
+  }
+
+  [data-faith="jainism"] {
+    --bg-0: #0A1318;
+    --bg-1: #16313A;
+    --bg-2: #244B57;
+    --accent: #2DD4BF;
+    --accent-2: #FDE047;
+    --glow: rgba(45, 212, 191, 0.42);
+  }
+
+  [data-faith="judaism"] {
+    --bg-0: #040A1F;
+    --bg-1: #0B1E5B;
+    --bg-2: #152F85;
+    --accent: #60A5FA;
+    --accent-2: #F59E0B;
+    --glow: rgba(96, 165, 250, 0.42);
+  }
+
+  [data-faith="all"] {
+    --bg-0: #07030F;
+    --bg-1: #180838;
+    --bg-2: #2A1054;
+    --accent: #A855F7;
+    --accent-2: #F59E0B;
+    --glow: rgba(168, 85, 247, 0.45);
+  }
+
+  body {
+    font-family: var(--font-ui);
+    background-color: var(--bg-0);
+    color: #F8FAFC;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    selection-background-color: #9333ea;
+  }
+
+  h1, h2, h3, .font-serif, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  .font-brand {
+    font-family: var(--font-brand);
+    letter-spacing: 0.14em;
+  }
+
+  .font-ui {
+    font-family: var(--font-ui);
+  }
+
+  .font-script {
+    font-family: var(--font-script);
+  }
+
+  .eyebrow-label {
+    font-family: var(--font-brand);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+
+  .scripture-text {
+    font-family: var(--font-script);
+    font-size: 21px;
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+
+  .gold-violet-glow {
+    background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 40%, #E879F9 80%, #C084FC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 24px rgba(245, 158, 11, 0.35), 0 0 40px rgba(168, 85, 247, 0.25);
+  }
+}
+
+/* =========================================================================
+   Apple Vision Pro Glass & Sacred Cosmos Utility Classes
+   ========================================================================= */
+
+/* Primary visionOS Frosted Glass Surface */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.22),
+              0 24px 60px -12px rgba(3, 1, 10, 0.75),
+              0 0 30px -10px var(--glow);
+  border-radius: 28px;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+}
+
+/* Elevated Glass (Modals, Overlays, Floating Dock) */
+.glass-panel-elevated {
+  background: rgba(255, 255, 255, 0.11);
+  backdrop-filter: blur(36px) saturate(190%);
+  -webkit-backdrop-filter: blur(36px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.30),
+              0 30px 80px -15px rgba(3, 1, 10, 0.85),
+              0 0 45px -8px var(--glow);
+  border-radius: 32px;
+}
+
+/* Interactive Glass Card with Specular Highlight */
+.glass-card {
+  background: rgba(255, 255, 255, 0.065);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.16),
+              0 14px 40px -10px rgba(0, 0, 0, 0.6);
+  border-radius: 24px;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.24s ease,
+              border-color 0.24s ease,
+              box-shadow 0.24s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.28),
+              0 20px 50px -10px rgba(0, 0, 0, 0.75),
+              0 0 35px -8px var(--glow);
+  transform: translateY(-2px);
+}
+
+/* visionOS Floating Dock Pill */
+.glass-dock {
+  background: rgba(14, 7, 26, 0.75);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.25),
+              0 20px 60px -10px rgba(0, 0, 0, 0.85),
+              0 0 40px -5px var(--glow);
+  border-radius: 9999px;
+}
+
+/* Compact Glass Pill Button */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35),
+              0 0 20px var(--glow);
+}
+
+/* Shimmering Sacred Typography */
+.gradient-text-sacred {
+  background: linear-gradient(135deg, #F5D0FE 0%, #FFFFFF 45%, #FDE68A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-cosmic {
+  background: linear-gradient(135deg, #E9D5FF 0%, #FFFFFF 50%, #C084FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #FEF08A 0%, #F59E0B 60%, #FDE68A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Specular Light Sweep Animation */
+.specular-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.specular-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transform: skewX(-20deg);
+  animation: light-sweep 8s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =========================================================================
+   Atmosphere & Cosmic Keyframes
+   ========================================================================= */
+
+@keyframes nebula-drift-1 {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(60px, -40px) scale(1.15) rotate(10deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+}
+
+@keyframes nebula-drift-2 {
+  0% { transform: translate(0, 0) scale(1.1) rotate(0deg); }
+  50% { transform: translate(-50px, 35px) scale(0.95) rotate(-8deg); }
+  100% { transform: translate(0, 0) scale(1.1) rotate(0deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse-sacred {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.04); }
+}
+
+@keyframes light-sweep {
+  0%, 65% { left: -120%; }
+  100% { left: 200%; }
+}
+
+@keyframes shooting-star {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-35deg) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-30px) translateY(30px) rotate(-35deg) scale(1);
+  }
+  40% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(-400px) translateY(400px) rotate(-35deg) scale(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes mandala-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes aurora-wave {
+  0% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+  50% { transform: translateY(-30px) scaleY(1.25); opacity: 0.85; }
+  100% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+}
+
+@keyframes ripple-pulse {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes dosha-breathe {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 35px var(--glow), inset 0 1px 2px rgba(255, 255, 255, 0.35);
+  }
+}
+
+.animate-nebula-1 { animation: nebula-drift-1 28s ease-in-out infinite; }
+.animate-nebula-2 { animation: nebula-drift-2 36s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+.animate-float-medium { animation: float-medium 5s ease-in-out infinite; }
+.animate-mandala-slow { animation: mandala-spin 120s linear infinite; }
+.animate-pulse-sacred { animation: pulse-sacred 4s ease-in-out infinite; }
+.animate-aurora { animation: aurora-wave 18s ease-in-out infinite; }
+.animate-dosha-breathe { animation: dosha-breathe 4.5s ease-in-out infinite; }
+
+/* =========================================================================
+   Effects Level Control Overrides: [data-effects="balanced" | "minimal"]
+   ========================================================================= */
+
+[data-effects="balanced"] .animate-nebula-1,
+[data-effects="balanced"] .animate-nebula-2 {
+  animation-duration: 60s;
+  opacity: 0.7;
+}
+
+[data-effects="balanced"] .specular-sweep::after {
+  display: none;
+}
+
+[data-effects="minimal"] * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.08s !important;
+}
+
+[data-effects="minimal"] .glass-panel,
+[data-effects="minimal"] .glass-panel-elevated,
+[data-effects="minimal"] .glass-card,
+[data-effects="minimal"] .glass-dock {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(18, 10, 32, 0.95) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-effects="minimal"] .animate-nebula-1,
+[data-effects="minimal"] .animate-nebula-2,
+[data-effects="minimal"] .animate-mandala-slow,
+[data-effects="minimal"] .animate-aurora,
+[data-effects="minimal"] .specular-sweep::after {
+  display: none !important;
+}
